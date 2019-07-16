@@ -13,6 +13,7 @@ import { MinecraftSeedCreateComponent } from './minecraft-seeds/minecraft-seed-c
 import { MinecraftSeedDetailComponent } from './minecraft-seeds/minecraft-seed-detail/minecraft-seed-detail.component';
 import { MinecraftSeedListComponent } from './minecraft-seeds/minecraft-seed-list/minecraft-seed-list.component';
 import { MinecraftSeedsComponent } from './minecraft-seeds/minecraft-seeds.component';
+import { MinecraftSeedsService } from './shared/minecraft-seeds.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { MinecraftSeedsComponent } from './minecraft-seeds/minecraft-seeds.compo
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
-  providers: [],
+  providers: [MinecraftSeedsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
