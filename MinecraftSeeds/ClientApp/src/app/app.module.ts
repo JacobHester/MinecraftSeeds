@@ -9,6 +9,10 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { MinecraftSeedCreateComponent } from './minecraft-seeds/minecraft-seed-create/minecraft-seed-create.component';
+import { MinecraftSeedDetailComponent } from './minecraft-seeds/minecraft-seed-detail/minecraft-seed-detail.component';
+import { MinecraftSeedListComponent } from './minecraft-seeds/minecraft-seed-list/minecraft-seed-list.component';
+import { MinecraftSeedsComponent } from './minecraft-seeds/minecraft-seeds.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    MinecraftSeedsComponent,
+    MinecraftSeedCreateComponent,
+    MinecraftSeedListComponent,
+    MinecraftSeedDetailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
