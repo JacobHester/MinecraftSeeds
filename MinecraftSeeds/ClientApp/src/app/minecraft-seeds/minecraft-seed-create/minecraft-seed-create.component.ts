@@ -59,7 +59,7 @@ export class MinecraftSeedCreateComponent implements OnInit {
     this.service.putUpdateSeed().subscribe(
       res => {
         this.resetForm(form);
-        this.toastr.success('Updated Succsessfully', 'Minecraft Seed');
+        this.toastr.info('Updated Succsessfully', 'Minecraft Seed');
         this.service.refreshList();
       },
       err => {

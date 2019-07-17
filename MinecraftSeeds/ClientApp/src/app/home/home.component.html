@@ -1,8 +1,11 @@
-<div class="row">
-  <div class="col-md-5">
-    <app-minecraft-seed-create></app-minecraft-seed-create>
-  </div>
-  <div class="col-md-7">
-    <app-minecraft-seed-list></app-minecraft-seed-list>
+<div class="bg-light" style="width: 100%; padding: 25px; z-index: 5;">
+  <div class="row">
+    <div class="col-md-4">
+     <app-minecraft-seed-create></app-minecraft-seed-create>
+    </div>
+   <div class="col-md-8"style="border-left: 1px dashed lime;">
+      <router-outlet></router-outlet>
+      <!-- <app-minecraft-seed-list></app-minecraft-seed-list> -->
+   </div>
   </div>
 </div>

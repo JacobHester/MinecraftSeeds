@@ -16,6 +16,7 @@ import { MinecraftSeedDetailComponent } from './minecraft-seeds/minecraft-seed-d
 import { MinecraftSeedListComponent } from './minecraft-seeds/minecraft-seed-list/minecraft-seed-list.component';
 import { MinecraftSeedsComponent } from './minecraft-seeds/minecraft-seeds.component';
 import { MinecraftSeedsService } from './shared/minecraft-seeds.service';
+import { MinecraftSeedViewComponent } from './minecraft-seeds/minecraft-seed-view/minecraft-seed-view.component';
 
 @NgModule({
   declarations: [
@@ -27,15 +28,16 @@ import { MinecraftSeedsService } from './shared/minecraft-seeds.service';
     MinecraftSeedsComponent,
     MinecraftSeedCreateComponent,
     MinecraftSeedListComponent,
-    MinecraftSeedDetailComponent
+    MinecraftSeedDetailComponent,
+    MinecraftSeedViewComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
+      { path: '', component: MinecraftSeedListComponent, pathMatch: 'full' },
+      { path: 'view', component: MinecraftSeedViewComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ]),
     BrowserAnimationsModule,
