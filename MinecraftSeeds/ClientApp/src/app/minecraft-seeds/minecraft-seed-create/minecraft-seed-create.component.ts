@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MinecraftSeedsService } from 'src/app/shared/minecraft-seeds.service';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-minecraft-seed-create',
@@ -9,7 +10,8 @@ import { NgForm } from '@angular/forms';
 })
 export class MinecraftSeedCreateComponent implements OnInit {
 
-  constructor(private service:MinecraftSeedsService) { }
+  constructor(private service:MinecraftSeedsService,
+              private toastr:ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -19,20 +21,46 @@ export class MinecraftSeedCreateComponent implements OnInit {
     if (form != null)
       form.resetForm();
     this.service.formData = {
-    SeedID: 0,
-    SeedValue: '',
-    SeedText: '',
-    Title: '',
-    Description: '',
-    Image: '',
+    seedID: 0,
+    seedValue: '',
+    seedText: '',
+    title: '',
+    description: '',
+    image: '',
     version: ''
     }
   }
 
   onSubmit(form: NgForm){
-    this.service.postSeed(form.value).subscribe(
+    if (this.service.formData.seedID == 0)
+    {
+       this.insertSeed(form);
+    }
+    else
+    {
+       this.updateSeed(form);
+    }
+  }
+
+  insertSeed(form:NgForm){
+    this.service.postSeed().subscribe(
       res => {
         this.resetForm(form);
+        this.toastr.success('Submitted Succsessfully', 'Minecraft Seed');
+        this.service.refreshList();
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
+
+  updateSeed(form:NgForm){
+    this.service.putUpdateSeed().subscribe(
+      res => {
+        this.resetForm(form);
+        this.toastr.success('Updated Succsessfully', 'Minecraft Seed');
+        this.service.refreshList();
       },
       err => {
         console.log(err);

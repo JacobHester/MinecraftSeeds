@@ -8,12 +8,28 @@ import { HttpClient } from '@angular/common/http';
 export class MinecraftSeedsService {
 
 formData: MinecraftSeed;
-
-readonly baseURL: "https://localhost:44377/api";
+list : MinecraftSeed[];
 
   constructor(private http:HttpClient) { }
 
-  postSeed(formData:MinecraftSeed){
-    return this.http.post("https://localhost:44377/api/Seed", formData);
+  postSeed(){
+    return this.http.post("https://localhost:44377/api/Seed", this.formData);
   }
+
+  refreshList(){
+    this.http.get("https://localhost:44377/api/Seed")
+    .toPromise()
+    .then(res => this.list = res as MinecraftSeed[]);
+
+  }
+
+  putUpdateSeed(){
+    return this.http.put("https://localhost:44377/api/Seed/" + this.formData.seedID, this.formData);
+  }
+
+  deleteSeed(seedID){
+    return this.http.delete("https://localhost:44377/api/Seed/" + seedID);
+  }
+
+
 }
