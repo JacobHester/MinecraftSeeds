@@ -1,3 +1,8 @@
-<p>
-  minecraft-seed-list works!
-</p>
+<table class="table table-hover">
+  <tr *ngFor="let seed of service.list">
+  <td (click)="update(seed)">{{ seed.title }}</td>
+  <td>{{ seed.seedValue }}</td>
+  <td>{{ seed.seedText }}</td>
+  <button class="btn btn-danger button"(click)="onDelete(seed.seedID)">Delete</button>
+  </tr>
+</table>

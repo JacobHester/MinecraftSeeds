@@ -1,9 +1,9 @@
 export class MinecraftSeed {
-    SeedID: number;
-    SeedValue: string;
-    SeedText: string;
-    Title: string;
-    Description: string;
-    Image: string;
+    seedID: number;
+    seedValue: string;
+    seedText: string;
+    title: string;
+    description: string;
+    image: string;
     version: string;
 }
