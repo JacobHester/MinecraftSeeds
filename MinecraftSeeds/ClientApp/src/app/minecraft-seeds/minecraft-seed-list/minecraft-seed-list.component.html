@@ -1,0 +1,14 @@
+<h3>Seed List</h3>
+<table class="table table-hover">
+  <tr *ngFor="let seed of service.list">
+  <td routerLink="/view">{{ seed.title }}</td>
+  <td routerLink="/view">{{ seed.seedValue }}</td>
+  <td routerLink="/view">{{ seed.seedText }}</td>
+  <td>
+      <button style="vertical-align:middle" class="btn btn-info button" (click)="update(seed)">Update</button>
+  </td>
+  <td>
+      <button style="vertical-align:middle" class="btn btn-danger button"(click)="onDelete(seed.seedID)">Delete</button>
+  </td>
+  </tr>
+</table>

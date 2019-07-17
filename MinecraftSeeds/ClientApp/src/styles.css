@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+input.ng-touched.ng-invalid{
+    border-color: red;
+}
+
+input.ng-valid{
+    border-color: green;
+}
+
+textarea.ng-touched.ng-invalid{
+    border-color: red;
+}
+
+textarea.ng-valid{
+    border-color: green;
+}
+
+#toast-container > div {
+    opacity: 1;
+  }
+  
+  .toast {
+    font-size: initial !important;
+    border: initial !important;
+    backdrop-filter: blur(0) !important;
+  }
+  .toast-success {
+    background-color: #51A351 !important;
+  }
+  .toast-error {
+    background-color: #BD362F !important;
+  }
+  .toast-info {
+    background-color: #2F96B4 !important;
+  }
+  .toast-warning {
+    background-color: #F89406 !important;
+  }
+
+  table tr:hover {
+    cursor: pointer;
+  }
+
+  table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 5px;
+}
+
+.button {
+  opacity: 0;
+  padding-top: 5px;
+}
+
+tr:hover .button {
+  opacity: 1;
+}
