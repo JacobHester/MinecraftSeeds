@@ -31,7 +31,8 @@ namespace MinecraftSeeds.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<seed>> Getseed(int id)
         {
-            var seed = await _context.Seeds.FindAsync(id);
+            var seed = await _context.Seeds
+                .FindAsync(id);
 
             if (seed == null)
             {

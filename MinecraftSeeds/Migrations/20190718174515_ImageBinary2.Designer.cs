@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MinecraftSeeds.data;
 
 namespace MinecraftSeeds.Migrations
 {
     [DbContext(typeof(MineCraftSeedContext))]
-    partial class MineCraftSeedContextModelSnapshot : ModelSnapshot
+    [Migration("20190718174515_ImageBinary2")]
+    partial class ImageBinary2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
