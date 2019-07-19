@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -31,7 +32,8 @@ namespace MinecraftSeeds.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<seed>> Getseed(int id)
         {
-            var seed = await _context.Seeds.FindAsync(id);
+            var seed = await _context.Seeds
+                .FindAsync(id);
 
             if (seed == null)
             {
@@ -75,6 +77,20 @@ namespace MinecraftSeeds.Controllers
         [HttpPost]
         public async Task<ActionResult<seed>> Postseed(seed seed)
         {
+            var request = HttpContext.Request;
+            var postedFile = request.Form.Files["image"];
+
+            if (postedFile != null)
+            {
+               var filePath = Path.GetTempFileName();
+               var inputStream = new FileStream(filePath, FileMode.Create);
+               
+               await postedFile.CopyToAsync(inputStream);
+               seed.Image = new byte[inputStream.Length];
+               inputStream.Seek(0,SeekOrigin.Begin);
+               inputStream.Read(seed.Image,0,seed.Image.Length);
+            }
+            
             _context.Seeds.Add(seed);
             await _context.SaveChangesAsync();
 

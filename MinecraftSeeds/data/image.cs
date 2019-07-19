@@ -1,6 +1,6 @@
 namespace MinecraftSeeds.data
 {
-    public class Image
+    public class image
     {
         public int ImageId { get; set; }
 

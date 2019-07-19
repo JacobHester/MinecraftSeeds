@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace MinecraftSeeds.data
 {
     public class seed
@@ -8,8 +10,8 @@ namespace MinecraftSeeds.data
         public string SeedText {get; set;}
         public string Title { get; set; }
         public string Description { get; set; }
-        public string Image { get; set; }
-
-        public string version { get; set; }
+        [Column(TypeName = "varBinary(max)")]
+        public byte[] Image {get; set;}
+        public string Version {get; set;}
     }
 }

@@ -11,6 +11,6 @@ namespace MinecraftSeeds.data
         }
               public DbSet<seed> Seeds {get; set;}
               
-              public DbSet<Image> Images {get; set;}
+              public DbSet<image> Images {get; set;}
     }
 }
