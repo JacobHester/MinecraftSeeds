@@ -76,10 +76,13 @@ namespace MinecraftSeeds.Controllers
         [HttpPost]
         public async Task<ActionResult<seed>> Postseed(seed seed)
         {
+            
             _context.Seeds.Add(seed);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("Getseed", new { id = seed.SeedID }, seed);
+
+
         }
 
         // DELETE: api/Seed/5

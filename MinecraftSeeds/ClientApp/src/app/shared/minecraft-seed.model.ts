@@ -4,6 +4,8 @@ export class MinecraftSeed {
     seedText: string;
     title: string;
     description: string;
-    image: string;
+    image: File;
     version: string;
 }
+
+//Send the file in a seperate part.

@@ -26,9 +26,13 @@ export class MinecraftSeedCreateComponent implements OnInit {
     seedText: '',
     title: '',
     description: '',
-    image: '',
+    image: null,
     version: ''
     }
+  }
+
+  onUpload(event){
+    this.service.selectedFile = event.target.files[0];
   }
 
   onSubmit(form: NgForm){
